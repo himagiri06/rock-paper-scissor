@@ -1,4 +1,4 @@
-# ROCK PAPER Scissors Game
+# ROCK PAPER SCISSORS Game
 
 ### Game rules
 
