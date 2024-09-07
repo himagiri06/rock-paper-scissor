@@ -1,0 +1,88 @@
+:root {
+  --color-primary-dark: #0a192a;
+  --color-primary: #112a46;
+  --color-primary-shade: #41556b;
+  --color-light: #fff;
+  --color-light-secondary: #dcdcdc;
+  --color-green: #014c3b;
+  --color-red: #8a0000;
+  --color-gray: #050505;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+}
+html {
+  font-family: 'Roboto';
+}
+body {
+  background-color: var(--color-light);
+  color: var(--color-primary);
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px;
+}
+h1 {
+  font-size: 24px;
+}
+h2 {
+  font-size: 20px;
+}
+.main h1,
+.main h2 {
+  margin: 8px;
+  color: var(--color-primary-shade);
+}
+
+.main .options {
+  margin-top: 24px;
+  display: flex;
+  gap: 16px;
+}
+.options button {
+  background-color: var(--color-primary-dark);
+  color: var(--color-light-secondary);
+  border: none;
+  border-radius: 8px;
+  font-size: 28px;
+  font-weight: 400;
+  width: 180px;
+  padding: 8px 24px;
+  flex: auto;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.options button:hover {
+  box-shadow: 0 0 10px var(--color-primary);
+}
+
+.summary {
+  margin-top: 48px;
+  font-size: 18px;
+  font-weight: 400;
+}
+.result {
+  margin: 24px;
+  font-size: 24px;
+  font-weight: 600;
+}
+.result.win,
+.result.lose,
+.result.tie {
+  font-size: 32px;
+}
+.result.win {
+  color: var(--color-green);
+}
+.result.lose {
+  color: var(--color-red);
+}
+.result.tie {
+  color: var(--color-gray);
+}
