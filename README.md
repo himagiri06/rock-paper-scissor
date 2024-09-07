@@ -57,3 +57,7 @@ Result of the current round (eg., You win or Computer wins).
   ```
 
 - Display the result on the page
+
+### Live Demo
+
+[Link](https://himagiri06.github.io/rock-paper-scissors/)
