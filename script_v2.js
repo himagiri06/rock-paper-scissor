@@ -13,7 +13,7 @@ summaryEl.innerHTML = 'Select an option 👆';
 const generateRandomNumber = (minRange, maxRange) => {
   if (minRange > maxRange)
     throw new Error('maxRange value should be greater than minRange value');
-  return Math.trunc(minRange + Math.random() * maxRange);
+  return Math.trunc(minRange + Math.random() * (maxRange - minRange));
 };
 
 function computeWinner(userOption, computerOption) {
