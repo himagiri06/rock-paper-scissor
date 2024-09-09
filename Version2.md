@@ -54,4 +54,4 @@ Result of the current round (eg., You win or Computer wins).
 
 ### Live Demo
 
-[Link](https://himagiri06.github.io/rock-paper-scissors/)
+[Link](https://himagiri06.github.io/rock-paper-scissors/v2.html)

@@ -29,4 +29,4 @@ User enters the input (rock, paper or scissors) in browser prompt window
 
 ### Live Demo
 
-[Click here](https://himagiri06.github.io/rock-paper-scissors/)
+[Click here](https://himagiri06.github.io/rock-paper-scissors/v1.html)

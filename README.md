@@ -14,7 +14,7 @@ Created as per the The Odin Project's recommendation. User inputs the option via
 
 [README.md file](./Version1.md)
 
-[Live Demo]()
+[Live Demo](https://himagiri06.github.io/rock-paper-scissors/v1.html)
 
 ### Version 2
 
@@ -22,4 +22,4 @@ User inputs the options using button clicks.
 
 [README.md file](./Version2.md)
 
-[Live Demo]()
+[Live Demo](https://himagiri06.github.io/rock-paper-scissors/v2.html)
