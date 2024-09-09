@@ -16,7 +16,7 @@
   margin: 0;
 }
 html {
-  font-family: 'Roboto';
+  font-family: 'Roboto', system-ui;
 }
 body {
   background-color: var(--color-light);
