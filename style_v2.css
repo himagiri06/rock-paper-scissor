@@ -28,6 +28,16 @@ body {
   align-items: center;
   padding: 80px;
 }
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--color-light-secondary);
+  padding: 32px;
+  margin-top: 16px;
+  min-height: 350px;
+}
 h1 {
   font-size: 24px;
 }
@@ -85,4 +95,24 @@ h2 {
 }
 .result.tie {
   color: var(--color-gray);
+}
+.play-again {
+  background-color: var(--color-green);
+  color: var(--color-light-secondary);
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  width: 180px;
+  padding: 8px 24px;
+  margin-top: 16px;
+  flex: auto;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.play-again:hover {
+  box-shadow: 0 0 10px var(--color-primary);
+}
+.hidden {
+  visibility: hidden;
 }

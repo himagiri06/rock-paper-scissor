@@ -1,9 +1,80 @@
 const options = ['rock', 'paper', 'scissors'];
 
+const summaryDefault = 'Select an option 👆';
 const optionsEl = document.querySelector('.options');
 const resultEl = document.querySelector('.result');
 const summaryEl = document.querySelector('.summary');
-summaryEl.innerHTML = 'Select an option 👆';
+const roundEl = document.querySelector('.round');
+const gameResultEl = document.querySelector('.game-result');
+const playAgainButton = document.querySelector('.play-again');
+const gameScoreEl = document.querySelector('.game-result > h3');
+
+let userScore;
+let computerScore;
+let round;
+
+const MAX_ROUNDS = 5;
+
+function initGame() {
+  gameResultEl.classList.add('hidden');
+  roundEl.textContent = '';
+  summaryEl.textContent = '';
+  resultEl.textContent = '';
+  summaryEl.textContent = summaryDefault;
+  userScore = computerScore = round = 0;
+  optionsEl.addEventListener('click', handleOptionClick);
+}
+
+initGame();
+
+playAgainButton.addEventListener('click', initGame);
+
+function handleOptionClick(e) {
+  const userChoice = e.target.dataset?.option?.toLowerCase();
+  if (!userChoice) {
+    return;
+  }
+  const computerChoice = options[generateRandomNumber(0, 3)].toLowerCase();
+
+  playRound(userChoice, computerChoice);
+}
+
+function playRound(userChoice, computerChoice) {
+  updateRound();
+  summaryEl.innerHTML = `<strong>You:</strong> ${userChoice} --- <strong>Computer:</strong> ${computerChoice}`;
+  const winner = computeWinner(userChoice, computerChoice);
+  const [, ...otherClasses] = resultEl.classList;
+  otherClasses.forEach((className) => resultEl.classList.remove(className));
+
+  switch (winner) {
+    case 'user':
+      resultEl.classList.add('win');
+      userScore++;
+      break;
+    case 'computer':
+      resultEl.classList.add('lose');
+      computerScore++;
+      break;
+    case 'tie':
+      resultEl.classList.add('tie');
+      break;
+  }
+
+  resultEl.textContent = generateResultText(winner);
+
+  if (round >= MAX_ROUNDS) completeGame();
+}
+
+function completeGame() {
+  gameScoreEl.textContent = `You: ${userScore} - Computer: ${computerScore}`;
+  optionsEl.removeEventListener('click', handleOptionClick);
+  gameResultEl.classList.remove('hidden');
+}
+
+function updateRound() {
+  round++;
+  roundEl.textContent = `Round #${round}`;
+}
 
 /**
  * Function to generate a random integer between minRange and MaxRage where minRange is inclusive and maxRange is exclusive
@@ -37,20 +108,3 @@ function generateResultText(winner) {
     ? 'You win 🎉'
     : 'Computer wins 💩';
 }
-optionsEl.addEventListener('click', function (e) {
-  const userOption = e.target.dataset?.option?.toLowerCase();
-  if (!userOption) {
-    return;
-  }
-  const computerOption = options[generateRandomNumber(0, 3)].toLowerCase();
-
-  summaryEl.innerHTML = `<strong>You:</strong> ${userOption} --- <strong>Computer:</strong> ${computerOption}`;
-  const winner = computeWinner(userOption, computerOption);
-  const [, ...otherClasses] = resultEl.classList;
-  otherClasses.forEach((className) => resultEl.classList.remove(className));
-
-  resultEl.classList.add(
-    winner === 'user' ? 'win' : winner === 'computer' ? 'lose' : 'tie'
-  );
-  resultEl.innerHTML = generateResultText(winner);
-});
